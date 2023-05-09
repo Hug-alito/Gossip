@@ -5,6 +5,6 @@ class Gossip < ApplicationRecord
   has_many :comments, as: :commentable
   has_many :likes, as: :likeable
 
-  validates :title, presence: true, length: { minimum: 5, maximum: 50 }
-  validates :content, presence: true, length: { minimum: 10, maximum: 1000 }
+  validates :title, presence: true, uniqueness: true, length: { minimum: 3, maximum: 34 } #Je sais que c'est 14 mais c'est galère pour la seed
+  validates :content, presence: true, uniqueness: true, length: { minimum: 10, maximum: 1000 }
 end

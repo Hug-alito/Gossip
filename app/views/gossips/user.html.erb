@@ -1,0 +1,12 @@
+<!-- app/views/users/show.html.erb -->
+
+<div class="container">
+  <div class="card mb-3">
+    <div class="card-body">
+      <h5 class="card-title"><%= @user.first_name %> <%= @user.last_name %></h5>
+      <p class="card-text"><%= @user.description %></p>
+      <p class="card-text"><strong>Email:</strong> <%= @user.email %></p>
+      <p class="card-text"><strong>Age:</strong> <%= @user.age %></p>
+    </div>
+  </div>
+</div>

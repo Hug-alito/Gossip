@@ -16,14 +16,14 @@
 <div class="bg-pink">
   <header class="container d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
     <a href="<%= root_path %>" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
-      <img src="pop-art-mouth-and-lips-talking-sticker-line-and-fill-icon-free-vector.jpg" alt="image" class="logo-img" style="margin-right: 10px !important;">
+      <%= image_tag('pop-art-mouth-and-lips-talking-sticker-line-and-fill-icon-free-vector.jpg', alt: "Logo", style: "margin-right: 10px !important;", width: '50') %>
       <span class="ml-3 fs-4 logo-brand nav-link">The Goss!p Project</span>
     </a>
     <ul class="nav nav-pills align-items-center">
       <li class="nav-item"><a href="<%= root_path %>" class="nav-link" aria-current="page">Accueil</a></li>
       <li class="nav-item"><a href="<%= team_path %>" class="nav-link">Équipe</a></li>
       <li class="nav-item"><a href="<%= contact_path %>" class="nav-link">Contact</a></li>
-      <li class="nav-item"><a href="<%= welcome_path %>" class="nav-link">Bienvenue</a></li>
+      <li class="nav-item"><a href="<%= new_gossip_path %>" class="nav-link">Lancer une rumeur</a></li>
     </ul>
   </header>
 </div>

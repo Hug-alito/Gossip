@@ -1,3 +1,9 @@
+<% if flash[:success].present? %>
+  <div class="alert alert-success custom_alert" role="alert">
+    <%= flash[:success] %>
+  </div>
+<% end %>
+
 <h1 class="text-center">Bienvenue sur <span style="color: #ff60aa;">The Gossip Project</span></h1>
 <p class="mb-5 text-center" style="color: black;">Parcours le mur des <span style="color: #ff60aa;">gossips</span> pour voir les dernières nouveautés</p>
 

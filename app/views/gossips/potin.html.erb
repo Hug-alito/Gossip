@@ -1,0 +1,12 @@
+<div class="container" style="height:80vh">
+  <% @gossips.each do |gossip| %>
+    <% if gossip.id == @gossip.id %>
+      <h3><%= gossip.title %></h3>
+      <p><em><%= gossip.content %></em></p>
+      <p>Créé par : <%= gossip.user.first_name %></p>
+      <a href="<%= root_path %>" class="btn btn-primary m-3 rounded-pill">👈 Revenir au menu</a>
+      <a href="<%= user_path(gossip.user) %>" class="btn-auteur btn btn-primary m-3 rounded-pill">Profil du gossiper <%= gossip.user.first_name %></a>
+      <hr>
+    <% end %>
+  <% end %>
+</div>

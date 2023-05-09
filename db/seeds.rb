@@ -22,21 +22,18 @@ end
 end
 
 # création de 10 tags
-10.times do
+20.times do
   Tag.create(
-    title: Faker::Lorem.word
+    title: Faker::Game.genre
   )
 end
 
-# création de 20 gossips et assignation aléatoire à un utilisateur et à un tag
 20.times do
-  gossip = Gossip.create(
+  Gossip.create(
     title: Faker::Book.title,
-    content: Faker::Lorem.paragraph(sentence_count: 5)
+    content: Faker::Lorem.paragraph(sentence_count: 5),
+    user: User.find(rand(1..10))
   )
-  gossip.user = User.all.sample
-  gossip.tags << Tag.all.sample
-  gossip.save
 end
 
 # création de quelques messages privés
