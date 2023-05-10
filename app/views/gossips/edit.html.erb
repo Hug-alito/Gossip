@@ -1,0 +1,12 @@
+<div class="container">
+  <h1>Éditer le Potin</h1>
+
+  <%= form_tag("/gossips/#{@gossip.id}", method: 'patch') do %>
+    <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+    <%= label_tag :title, "Nom du potin:" %><br>
+    <%= text_field_tag :title, @gossip.title %><br><br>
+    <%= label_tag :content, "Le contenu de votre potin:" %><br>
+    <%= text_area_tag :content, @gossip.content, size: '60' %>
+    <%= submit_tag "Envoyer", data: { turbo: false } %>
+  <% end %>
+</div>

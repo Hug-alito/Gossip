@@ -25,11 +25,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_06_120242) do
     t.text "content"
     t.bigint "user_id", null: false
     t.bigint "gossip_id", null: false
-    t.string "commentable_type", null: false
-    t.bigint "commentable_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["commentable_type", "commentable_id"], name: "index_comments_on_commentable"
     t.index ["gossip_id"], name: "index_comments_on_gossip_id"
     t.index ["user_id"], name: "index_comments_on_user_id"
   end

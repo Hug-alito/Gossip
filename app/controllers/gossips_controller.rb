@@ -16,16 +16,38 @@ class GossipsController < ApplicationController
   
   def index
     @gossips = Gossip.all
-  end
-
-  def welcome
-    @first_name = params[:first_name]
-    puts params[:first_name].inspect
+    @gossips = Gossip.order(updated_at: :desc) # Récupérer tous les potins et les trier par ordre de mise à jour décroissant
   end
 
   def show
     @gossip = Gossip.find(params[:id])
     @gossips = Gossip.all
+    @comments = @gossip.comments
+  end
+
+  def edit
+    @gossip = Gossip.find(params[:id])
+  end
+
+  def update
+    @gossip = Gossip.find(params[:id])
+    if @gossip.update(title: params[:title], content: params[:content])
+      flash[:success] = "Le potin a été modifié avec succès."
+      redirect_to gossip_path(params[:id])
+    else
+      render :edit
+    end
+  end
+
+  def destroy
+    @gossip = Gossip.find(params[:id])
+    if @gossip.destroy
+      flash[:success] = "Le potin a été détruit avec succès."
+      redirect_to gossips_path
+    else
+      flash[:error] = "Le potin n'a pas été détruit."
+      redirect_to gossip_path(params[:id])
+    end
   end
 
 end

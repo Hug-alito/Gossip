@@ -28,7 +28,7 @@ end
   )
 end
 
-20.times do
+40.times do
   Gossip.create(
     title: Faker::Book.title,
     content: Faker::Lorem.paragraph(sentence_count: 5),
@@ -51,13 +51,12 @@ end
 end
 
 # création de 20 commentaires et assignation aléatoire à un utilisateur et à un gossip
-20.times do
-  comment = Comment.create(
-    content: Faker::Lorem.paragraph(sentence_count: 2)
+300.times do
+  Comment.create(
+    content: Faker::Lorem.paragraph(sentence_count: 2),
+    user: User.find(rand(1..10)),
+    gossip: Gossip.find(rand(1..30))
   )
-  comment.user = User.all.sample
-  comment.commentable = [Gossip.all, Comment.all].sample.sample
-  comment.save
 end
 
 # création de 20 likes aléatoires
