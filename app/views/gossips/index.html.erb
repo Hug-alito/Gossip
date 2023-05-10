@@ -1,0 +1,24 @@
+<% if flash[:success].present? %>
+  <div class="alert alert-success custom_alert" role="alert">
+    <%= flash[:success] %>
+  </div>
+<% end %>
+
+<h1 class="text-center">Bienvenue sur <span style="color: #ff60aa;">The Gossip Project</span></h1>
+<p class="mb-5 text-center" style="color: black;">Parcours le mur des <span style="color: #ff60aa;">gossips</span> pour voir les dernières nouveautés</p>
+
+<div class="container">
+  <div class="row justify-content-center mb-5">
+    <% @gossips.each do |gossip| %>
+      <div class="card mb-3 mx-4 card-home" style="width: 17rem;">
+        <div class="card-body d-flex flex-column justify-content-between">
+          <h5 class="card-title" style="color: #ff60aa;"><%= gossip.title %></h5>
+          <p class="card-text"><em><%= gossip.content %></em></p>
+          <div class="mt-auto text-center">
+            <a href="<%= gossip_path(gossip.id) %>" class="btn btn-primary">Voir le potin</a>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

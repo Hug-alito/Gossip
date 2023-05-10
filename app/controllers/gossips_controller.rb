@@ -14,14 +14,8 @@ class GossipsController < ApplicationController
     end
   end  
   
-  def home
+  def index
     @gossips = Gossip.all
-  end
-
-  def team
-  end
-
-  def contact
   end
 
   def welcome
@@ -29,13 +23,9 @@ class GossipsController < ApplicationController
     puts params[:first_name].inspect
   end
 
-  def potin
+  def show
     @gossip = Gossip.find(params[:id])
     @gossips = Gossip.all
   end
 
-  def user
-    @user = User.find(params[:user])
-  end
-  
 end
