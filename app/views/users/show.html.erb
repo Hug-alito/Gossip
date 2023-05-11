@@ -4,7 +4,7 @@
       <h5 class="card-title"><%= @user.first_name %> <%= @user.last_name %></h5>
       <p class="card-text"><%= @user.description %></p>
       <p class="card-text"><strong>Email:</strong> <%= @user.email %></p>
-      <p class="card-text"><strong>Age:</strong> <%= @user.age %></p>
+      <p class="card-text"><strong>Date de naissance:</strong> <%= @user.date_of_birth %></p>
       <p class="card-text"><strong>Ville:</strong> <%= @user.city.name %></p>
       <a href="<%= city_path(@user.city) %>" class="btn-auteur btn btn-primary m-3 rounded-pill">Ville</a>
     </div>

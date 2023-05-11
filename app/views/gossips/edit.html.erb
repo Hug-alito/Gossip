@@ -9,4 +9,11 @@
     <%= text_area_tag :content, @gossip.content, size: '60' %>
     <%= submit_tag "Envoyer", data: { turbo: false } %>
   <% end %>
+  <%= button_to gossip_path(@gossip.id),
+method: :delete,
+data: { confirm: "Êtes-vous sûr de vouloir supprimer ce potin ?" },
+class: "btn btn-primary rounded-pill",
+form_class: "d-inline" do %>
+Supprimer le potin
+<% end %>
 </div>
