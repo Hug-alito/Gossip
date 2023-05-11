@@ -7,6 +7,8 @@
     <%= text_field_tag :title, nil %><br><br>
     <%= label_tag :content, "Le contenu de votre potin:" %><br>
     <%= text_area_tag :content, nil, size: '60' %>
+    <%= label_tag :tag, "Tags:" %><br>
+    <%= select_tag :tag, options_for_select(Tag.all.map { |tag| [tag.title, tag.id] }), prompt: "Sélectionner des tags", multiple: true %>
     <%= submit_tag "Envoyer", data: { turbo: false } %>
   <% end %>
 </div>

@@ -80,8 +80,10 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_06_120242) do
     t.string "last_name"
     t.text "description"
     t.string "email"
-    t.integer "age"
+    t.date "date_of_birth"
+    t.string "gender"
     t.bigint "city_id"
+    t.string "password_digest"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["city_id"], name: "index_users_on_city_id"

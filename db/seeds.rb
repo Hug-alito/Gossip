@@ -15,14 +15,18 @@ end
     last_name: Faker::Name.last_name,
     description: Faker::Lorem.paragraph(sentence_count: 2),
     email: Faker::Internet.email,
-    age: rand(18..80)
+    password: 'password',
+    password_confirmation: 'password',
+    date_of_birth: Faker::Date.between(from: 80.years.ago, to: 18.years.ago),
+    gender: ['M', 'F'].sample
   )
   user.city = City.all.sample
   user.save
 end
 
+
 # création de 10 tags
-20.times do
+10.times do
   Tag.create(
     title: Faker::Game.genre
   )

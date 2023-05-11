@@ -15,6 +15,12 @@
           <h5 class="card-title" style="color: #ff60aa;"><%= gossip.title %></h5>
           <p class="card-text"><em><%= gossip.content %></em></p>
           <p class="card-text"><strong>Nombre de commentaires :</strong> <%= gossip.comments_count %></p>
+          <p class="card-text"><strong>Nombre de likes :</strong> <%= gossip.likes.count %></p> <!-- Afficher le nombre de likes -->
+          <p class="card-text"><em>Tags :</em>
+            <% gossip.tags.each do |tag| %>
+              <%= tag.title %>
+            <% end %>
+          </p>
           <div class="mt-auto text-center">
             <a href="<%= gossip_path(gossip.id) %>" class="btn btn-primary">Voir le potin</a>
           </div>

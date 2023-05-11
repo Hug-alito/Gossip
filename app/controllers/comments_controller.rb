@@ -1,4 +1,5 @@
 class CommentsController < ApplicationController
+  before_action :authenticate_user
   def index
   end
 
@@ -11,7 +12,7 @@ class CommentsController < ApplicationController
 
   def create
     @gossip = Gossip.find(params[:gossip_id])
-    @comment = Comment.new(content: params[:content], user: User.find(1), gossip: Gossip.find(params[:gossip_id]))
+    @comment = Comment.new(content: params[:content], user: current_user, gossip: Gossip.find(params[:gossip_id]))
     
     if @comment.save
       flash[:success] = "Le commentaire a bien été créé !"
