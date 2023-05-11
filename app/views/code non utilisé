@@ -1,3 +1,11 @@
       <li class="nav-item"><a href="<%= root_path %>" class="nav-link" aria-current="page">Accueil</a></li>
         <li class="nav-item"><a href="<%= team_path %>" class="nav-link">Équipe</a></li>
       <li class="nav-item"><a href="<%= contact_path %>" class="nav-link">Contact</a></li>
+
+      <%= button_to gossip_comment_path(@gossip.id, comment.id),
+      method: :delete,
+      data: { confirm: "Êtes-vous sûr de vouloir supprimer ta réac' ?" },
+      class: "btn-auteur btn btn-primary m-3 rounded-pill",
+      form_class: "d-inline" do %>
+      Supprimer le com
+    <% end %>

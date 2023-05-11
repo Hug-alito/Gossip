@@ -79,3 +79,7 @@ gem'table_print'
 gem "simple_form", "~> 5.2"
 
 gem "bcrypt", "~> 3.1"
+
+gem "rails-i18n", "~> 7.0"
+
+gem "strftime", "~> 1.0"

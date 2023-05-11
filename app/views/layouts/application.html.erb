@@ -24,6 +24,9 @@
         </button>
         <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
           <ul class="navbar-nav">
+              <li class="nav-item">
+                <a href="<%= new_gossip_path %>" class="nav-link text-white">Lancer une rumeur</a>
+              </li>
             <% if current_user %>
               <li class="nav-item">
                 <%= link_to "Se déconnecter", session_path(session.id), method: :delete, class: "nav-link text-white", data: { method: :delete, confirm: "Êtes-vous sûr de vouloir vous déconnecter ?" } %>
@@ -33,9 +36,6 @@
                 <a href="<%= new_session_path %>" class="nav-link text-white">Se connecter</a>
               </li>
             <% end %>
-            <li class="nav-item">
-              <a href="<%= new_gossip_path %>" class="nav-link text-white">Lancer une rumeur</a>
-            </li>
           </ul>
         </div>
       </div>

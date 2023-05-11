@@ -27,20 +27,41 @@ class CommentsController < ApplicationController
   def edit
     @gossip = Gossip.find(params[:gossip_id])
     @comment = Comment.find(params[:id])
+    
+    unless @comment.user == current_user 
+      flash[:error] = "Vous n'êtes pas autorisé à modifier ce commentaire."
+      redirect_to gossip_path(params[:gossip_id])
+    end
   end
 
   def update
     @comment = Comment.find(params[:id])
+
+    unless @comment.user == current_user
+      flash[:error] = "Vous n'êtes pas autorisé à modifier ce commentaire."
+      redirect_to gossip_path(params[:gossip_id])
+      return
+    end
+
     if @comment.update(content: params[:content])
       flash[:success] = "Le commentaire a été modifié avec succès."
       redirect_to gossip_path(params[:gossip_id])
     else
       render :edit
     end
+
   end
 
   def destroy
     @comment = Comment.find(params[:id])
+    @gossip = Gossip.find(params[:gossip_id])
+    
+    unless @comment.user == current_user || @gossip.user == current_user
+      flash[:error] = "Vous n'êtes pas autorisé à supprimer ce commentaire."
+      redirect_to gossip_path(params[:gossip_id])
+      return
+    end
+
     if @comment.destroy
       flash[:success] = "Le com a été détruit avec succès."
       redirect_to gossip_path(params[:gossip_id])
@@ -49,6 +70,7 @@ class CommentsController < ApplicationController
       redirect_to gossip_path(params[:gossip_id])
     end
   end
+    
 
   private
 

@@ -209,3 +209,12 @@ a.btn-auteur:hover {
 .btn-custom {
   color: #FF60AA !important;
 }
+
+.formulaire {
+  color: #ff60aa; 
+  font-size: 16px; 
+  border-radius: 20px; 
+  height: 4rem; 
+  text-indent: 1%;
+  width: 61.5vw;
+}
